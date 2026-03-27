@@ -5,6 +5,7 @@ const PORT = 3000;
 
 // fake token storage (in memory)
 let token = null;
+let isFetching = false;
 
 // simulate login to Vault
 async function loginToVault() {
@@ -13,9 +14,6 @@ async function loginToVault() {
 }
 
 // endpoint
-let token = null;
-let isFetching = false;
-
 app.get("/token", async (req, res) => {
   if (token) {
     return res.json({ token });
